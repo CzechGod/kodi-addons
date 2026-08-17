@@ -2,6 +2,12 @@
 
 Kodi repository pro instalaci a automatické aktualizace mých Kodi addonů.
 
+## Dostupné doplňky
+
+| Doplněk | ID | Verze | Popis |
+| --- | --- | --- | --- |
+| Kowesha | `plugin.video.kowesha` | 0.2.1 | Vyhledávání a přehrávání videí z Webshare.cz |
+
 ## Instalace repository
 
 ### 1. Povol neznámé zdroje
@@ -35,7 +41,7 @@ Otevři:
 Vyber zdroj **CzechGod** a následně:
 
 ```text
-repository.czechgod-1.0.0.zip
+repository.czechgod/repository.czechgod-1.0.0.zip
 ```
 
 Počkej na oznámení **Add-on repository installed**.
