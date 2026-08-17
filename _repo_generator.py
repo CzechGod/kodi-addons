@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate the Kodi repository catalog (``addons.xml`` + ``addons.xml.md5``).
+"""Generate the Kodi repository catalog (``addons.xml`` + ``addons.xml.md5.txt``).
 
 A Kodi repository published via GitHub Pages needs:
 
 * for every add-on a ``<id>/`` folder with the installable archive
   ``<id>/<id>-<version>.zip`` (because ``datadir`` has ``zip="true"``),
 * an ``addons.xml`` file with the merged ``addon.xml`` of all add-ons,
-* an ``addons.xml.md5`` file with the MD5 checksum of ``addons.xml``.
+* an ``addons.xml.md5.txt`` file with the MD5 checksum of ``addons.xml``.
 
 This script:
 
@@ -16,7 +16,7 @@ This script:
 * if the ``<id>/<id>-<version>.zip`` archive is missing, builds it from the
   folder contents (skipping development/helper files) so the add-on can be
   installed from the repository,
-* assembles ``addons.xml`` and writes ``addons.xml.md5``.
+* assembles ``addons.xml`` and writes ``addons.xml.md5.txt``.
 
 Uses only the Python standard library, so it requires no external tools.
 
@@ -36,7 +36,7 @@ import zipfile
 # Repository root = the directory this script lives in.
 REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 ADDONS_XML = os.path.join(REPO_ROOT, "addons.xml")
-ADDONS_XML_MD5 = os.path.join(REPO_ROOT, "addons.xml.md5")
+ADDONS_XML_MD5 = os.path.join(REPO_ROOT, "addons.xml.md5.txt")
 
 # Directory names that never end up in an add-on's installable archive.
 EXCLUDE_DIRS = {
@@ -151,7 +151,7 @@ def read_addon_xml_body(addon_xml):
 
 
 def generate(repo_root):
-    """Build addons.xml + addons.xml.md5 and add any missing add-on archives."""
+    """Build addons.xml + addons.xml.md5.txt and add any missing add-on archives."""
     addon_dirs = find_addon_dirs(repo_root)
     if not addon_dirs:
         raise SystemExit("Error: no add-on found (a directory with addon.xml).")
@@ -191,13 +191,13 @@ def generate(repo_root):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(
-        description="Generate addons.xml and addons.xml.md5 for a Kodi repository."
+        description="Generate addons.xml and addons.xml.md5.txt for a Kodi repository."
     )
     parser.parse_args(argv)
 
     summary, digest = generate(REPO_ROOT)
 
-    print("Done: addons.xml + addons.xml.md5")
+    print("Done: addons.xml + addons.xml.md5.txt")
     for addon_id, version, built in summary:
         print("  {0}  version: {1}  (archive: {2})".format(addon_id, version, built))
     print("  MD5: {0}".format(digest))

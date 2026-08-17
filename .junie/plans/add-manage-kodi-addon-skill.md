@@ -15,7 +15,7 @@ Obsah skillu bude **v češtině** (dle volby uživatele), umístěný na **úro
 **In Scope**
 - Nový adresář `.junie/skills/manage-kodi-addon/` se souborem `SKILL.md`.
 - Dva checklisty: `checklists/add.md` (přidání) a `checklists/update.md` (aktualizace).
-- Dokumentace stávajícího workflow: struktura `<id>/` složek, formát instalačního ZIPu, generátor `_repo_generator.py`, `just build`, verifikace `addons.xml`/`addons.xml.md5`, aktualizace `README.md`/`../../index.html`.
+- Dokumentace stávajícího workflow: struktura `<id>/` složek, formát instalačního ZIPu, generátor `_repo_generator.py`, `just build`, verifikace `addons.xml`/`addons.xml.md5.txt`, aktualizace `README.md`/`../../index.html`.
 - Popis častých chyb (pitfalls) a jak jim předejít.
 
 **Out of Scope**
@@ -45,7 +45,7 @@ Obsah skillu bude **v češtině** (dle volby uživatele), umístěný na **úro
 
 Repozitář je Kodi add-on repository publikovaný přes GitHub Pages. Klíčové komponenty (vše ověřeno v projektu):
 
-- **`_repo_generator.py`** (stdlib) – najde přímé podadresáře s `addon.xml`, přečte `id`+`version`, u chybějícího `<id>/<id>-<version>.zip` archiv sestaví z obsahu složky, poskládá `addons.xml` a zapíše `addons.xml.md5`.
+- **`_repo_generator.py`** (stdlib) – najde přímé podadresáře s `addon.xml`, přečte `id`+`version`, u chybějícího `<id>/<id>-<version>.zip` archiv sestaví z obsahu složky, poskládá `addons.xml` a zapíše `addons.xml.md5.txt`.
 - **`justfile`** – `just build` → `repo` → `python3 _repo_generator.py`.
 - **`repository.czechgod/addon.xml`** – má `<datadir zip="true">`, takže Kodi očekává instalační archiv na `<id>/<id>-<version>.zip`.
 - **Struktura doplňku** – každý doplněk má v kořeni repa složku `<id>/` s `addon.xml`, `resources/` a ZIPem `<id>/<id>-<version>.zip`. Kořenová složka **uvnitř** ZIPu musí být přesně `<id>/`.
@@ -88,7 +88,7 @@ Tělo (české sekce):
 - **Klíčové principy** – co je `<id>/` složka, že kořen ZIPu = ID doplňku, že `datadir zip="true"` vyžaduje `<id>/<id>-<version>.zip`, že `_repo_generator.py` sestaví jen **chybějící** ZIP.
 - **Přidání nového doplňku** – shrnutí + odkaz na `checklists/add.md`.
 - **Aktualizace doplňku** – shrnutí + odkaz na `checklists/update.md`.
-- **Verifikace** – `just build` proběhne bez chyb, `addons.xml` je validní XML, MD5 v `addons.xml.md5` odpovídá obsahu `addons.xml`, kořenová složka v ZIPu = ID.
+- **Verifikace** – `just build` proběhne bez chyb, `addons.xml` je validní XML, MD5 v `addons.xml.md5.txt` odpovídá obsahu `addons.xml`, kořenová složka v ZIPu = ID.
 - **Aktualizace dokumentace** – tabulka v `README.md` (příp. `../../index.html`).
 - **Časté chyby** – zapomenutý bump verze, ponechaná stará `<id>-<stará_verze>.zip`, špatná kořenová složka v ZIPu, nespuštěný `just build`.
 
@@ -99,7 +99,7 @@ Tělo (české sekce):
 2. Vytvořit v kořeni repa složku `<id>/` a vložit `addon.xml` + `resources/` (např. `icon.png`).
 3. Připravit instalační ZIP `<id>/<id>-<version>.zip` s kořenovou složkou = `<id>/` (buď zkopírovat hotový ZIP, nebo nechat `just build` sestavit z obsahu složky).
 4. Spustit `just build`.
-5. Ověřit `addons.xml`, `addons.xml.md5`, strukturu ZIPu.
+5. Ověřit `addons.xml`, `addons.xml.md5.txt`, strukturu ZIPu.
 6. Doplnit řádek do tabulky v `README.md`.
 7. Commit + push (GitHub Pages).
 
@@ -140,7 +140,7 @@ Jde o dokumentační artefakt (skill), proto se ověřuje (a) korektní načten�
 ### Klíčové scénáře
 
 - **Načtení skillu** – po vytvoření `SKILL.md` lze skill `manage-kodi-addon` vidět v seznamu dostupných skillů (validní frontmatter s `name` + `description`).
-- **Soulad s workflow (add)** – kroky v `checklists/add.md` odpovídají tomu, co dělá `_repo_generator.py` / `just build`: složka `<id>/`, ZIP s kořenem = ID, regenerace `addons.xml`/`addons.xml.md5`.
+- **Soulad s workflow (add)** – kroky v `checklists/add.md` odpovídají tomu, co dělá `_repo_generator.py` / `just build`: složka `<id>/`, ZIP s kořenem = ID, regenerace `addons.xml`/`addons.xml.md5.txt`.
 - **Soulad s workflow (update)** – `checklists/update.md` obsahuje bump verze a odstranění staré `<id>-<stará_verze>.zip`.
 - **Kontrola verifikace** – suchý běh `just build` na aktuálním stavu potvrdí, že popsané ověření (validní XML + shoda MD5) sedí s realitou.
 
@@ -164,7 +164,7 @@ Existuje `.junie/skills/manage-kodi-addon/SKILL.md` s hlavní dokumentací workf
 Existuje `checklists/add.md` s úplným postupem přidání nového doplňku.
 
 - Vytvořit `.junie/skills/manage-kodi-addon/checklists/add.md` v češtině.
-- Popsat kroky: získání zdroje doplňku (např. externí projekt), vytvoření složky `<id>/` s `addon.xml` + `resources/`, příprava instalačního ZIPu `<id>/<id>-<version>.zip` s kořenem = `<id>/`, spuštění `just build`, verifikace `addons.xml`/`addons.xml.md5` a struktury ZIPu, doplnění řádku do tabulky v `README.md`, commit + push.
+- Popsat kroky: získání zdroje doplňku (např. externí projekt), vytvoření složky `<id>/` s `addon.xml` + `resources/`, příprava instalačního ZIPu `<id>/<id>-<version>.zip` s kořenem = `<id>/`, spuštění `just build`, verifikace `addons.xml`/`addons.xml.md5.txt` a struktury ZIPu, doplnění řádku do tabulky v `README.md`, commit + push.
 - Zkontrolovat, že všechny zmíněné cesty a příkazy odpovídají reálnému repozitáři.
 
 ### ✓ Step 3: Přidat checklist pro aktualizaci doplňku a ověřit skill

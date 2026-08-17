@@ -41,7 +41,7 @@ Otevři:
 Vyber zdroj **CzechGod** a následně:
 
 ```text
-repository.czechgod/repository.czechgod-1.0.1.zip
+repository.czechgod/repository.czechgod-1.0.2.zip
 ```
 
 Počkej na oznámení **Add-on repository installed**.

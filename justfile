@@ -14,4 +14,4 @@ retrigger:
 checksum-xml:
     curl -fsSL https://czechgod.github.io/kodi-addons/addons.xml | md5sum
 checksum-md5:
-    curl -fsSL https://czechgod.github.io/kodi-addons/addons.xml.md5
+    curl -fsSL https://czechgod.github.io/kodi-addons/addons.xml.md5.txt

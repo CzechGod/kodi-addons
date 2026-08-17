@@ -70,7 +70,7 @@ Máš dvě možnosti (stejně jako u přidání):
 ## 7. Commit + push
 
 - [ ] Zkontroluj změny (`git status`): `<id>/addon.xml`, nový ZIP, smazaný
-  starý ZIP, `addons.xml`, `addons.xml.md5`, `README.md` (a při bumpu
+  starý ZIP, `addons.xml`, `addons.xml.md5.txt`, `README.md` (a při bumpu
   `repository.czechgod` i `index.html`).
 - [ ] Zacommituj a pushni – GitHub Pages katalog zveřejní novou verzi a Kodi
   ji nabídne k automatické aktualizaci.
@@ -82,5 +82,5 @@ Máš dvě možnosti (stejně jako u přidání):
 - **Zapomenutý odkaz na bootstrap ZIP** při bumpu `repository.czechgod` –
   aktualizuj cestu i v `README.md` a na obou místech v `index.html`.
 - Špatná kořenová složka uvnitř nového ZIPu (musí být `<id>/`).
-- Nespuštěný `just build` → neaktuální `addons.xml`/`addons.xml.md5`.
-- Ruční editace generovaných `addons.xml`/`addons.xml.md5`.
+- Nespuštěný `just build` → neaktuální `addons.xml`/`addons.xml.md5.txt`.
+- Ruční editace generovaných `addons.xml`/`addons.xml.md5.txt`.

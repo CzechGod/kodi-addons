@@ -72,14 +72,14 @@ Máš dvě možnosti:
 
 - [ ] Zkontroluj, které soubory přibyly/změnily se (`git status`):
   složka `<id>/` (s `addon.xml`, `resources/`, ZIP), `addons.xml`,
-  `addons.xml.md5`, `README.md`.
+  `addons.xml.md5.txt`, `README.md`.
 - [ ] Zacommituj a pushni – GitHub Pages katalog automaticky zveřejní na
   `https://czechgod.github.io/kodi-addons/`.
 
 ## Časté chyby
 
 - Špatná kořenová složka uvnitř ZIPu (musí být `<id>/`).
-- Nespuštěný `just build` → neaktuální `addons.xml`/`addons.xml.md5`.
-- Ruční editace generovaných `addons.xml`/`addons.xml.md5` (nedělej – uprav
+- Nespuštěný `just build` → neaktuální `addons.xml`/`addons.xml.md5.txt`.
+- Ruční editace generovaných `addons.xml`/`addons.xml.md5.txt` (nedělej – uprav
   `addon.xml` a spusť `just build`).
 - Zapomenutý řádek v `README.md`.

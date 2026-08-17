@@ -38,8 +38,8 @@ Typické zadání: „přidej addon …", „aktualizuj kowesha na verzi …",
   vývojové soubory dle `EXCLUDE_DIRS`/`EXCLUDE_FILE_PATTERNS`). Existující ZIP
   se stejným názvem **nepřepisuje**. Proto se při aktualizaci musí stará ZIP
   verze odstranit ručně (jinak by zůstala v repu vedle nové).
-- **`addons.xml` + `addons.xml.md5`** – generátor poskládá `addons.xml` ze
-  sloučených `addon.xml` všech doplňků a zapíše MD5 do `addons.xml.md5`.
+- **`addons.xml` + `addons.xml.md5.txt`** – generátor poskládá `addons.xml` ze
+  sloučených `addon.xml` všech doplňků a zapíše MD5 do `addons.xml.md5.txt`.
 - **`just build`** – spouští `python3 _repo_generator.py` (cíl `build` → `repo`).
   Je to jediný příkaz, který je potřeba k regeneraci katalogu.
 
@@ -81,8 +81,8 @@ Po každé změně ověř:
 - `just build` proběhne bez chyb a ve výstupu vypíše očekávané `id` + `version`
   každého doplňku (a zda byl archiv `built`/`exists`).
 - `addons.xml` je validní XML a obsahuje očekávané verze doplňků.
-- MD5 v `addons.xml.md5` odpovídá skutečnému obsahu `addons.xml`
-  (`md5sum addons.xml` = obsah `addons.xml.md5`).
+- MD5 v `addons.xml.md5.txt` odpovídá skutečnému obsahu `addons.xml`
+  (`md5sum addons.xml` = obsah `addons.xml.md5.txt`).
 - Instalační ZIP `<id>/<id>-<version>.zip` existuje a jeho **kořenová složka
   uvnitř archivu je přesně `<id>/`** (`unzip -l <id>/<id>-<version>.zip`).
 
@@ -105,9 +105,9 @@ Po každé změně ověř:
   verze; při aktualizaci ji vždy smaž.
 - **Špatná kořenová složka v ZIPu** – archiv nesmí mít soubory přímo v kořeni
   ani vnořenou jinou složku; kořen musí být `<id>/`.
-- **Nespuštěný `just build`** – bez regenerace zůstane `addons.xml`/`addons.xml.md5`
+- **Nespuštěný `just build`** – bez regenerace zůstane `addons.xml`/`addons.xml.md5.txt`
   neaktuální a doplněk se v repu neobjeví (nebo v nesprávné verzi).
-- **Ruční editace `addons.xml`/`addons.xml.md5`** – nedělej; oba soubory jsou
+- **Ruční editace `addons.xml`/`addons.xml.md5.txt`** – nedělej; oba soubory jsou
   generované, uprav zdroj (`addon.xml`) a spusť `just build`.
 - **Zapomenutý odkaz na bootstrap ZIP** při bumpu `repository.czechgod` – nová
   cesta `repository.czechgod/repository.czechgod-<verze>.zip` musí být i
