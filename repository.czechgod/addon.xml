@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="repository.czechgod"
        name="CzechGod Add-on Repository"
-       version="1.0.2"
+       version="1.0.3"
        provider-name="CzechGod">
 
     <extension point="xbmc.addon.repository">
         <dir>
-            <info compressed="false">https://czechgod.github.io/kodi-addons/addons.xml</info>
-            <checksum>https://czechgod.github.io/kodi-addons/addons.xml.md5.txt</checksum>
-            <datadir zip="true">https://czechgod.github.io/kodi-addons/</datadir>
+            <info compressed="false">https://raw.githubusercontent.com/CzechGod/kodi-addons/main/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/CzechGod/kodi-addons/main/addons.xml.md5.txt</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/CzechGod/kodi-addons/main/</datadir>
         </dir>
     </extension>
 
