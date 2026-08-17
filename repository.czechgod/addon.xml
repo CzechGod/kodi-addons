@@ -2,7 +2,7 @@
 <addon
     id="repository.czechgod"
     name="CzechGod Add-on Repository"
-    version="0.2.1"
+    version="1.0.0"
     provider-name="CzechGod">
 
     <extension point="xbmc.addon.repository">
