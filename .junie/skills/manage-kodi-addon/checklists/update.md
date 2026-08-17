@@ -56,15 +56,22 @@ Máš dvě možnosti (stejně jako u přidání):
   ls <id>/*.zip
   ```
 
-## 6. Aktualizuj verzi v `README.md`
+## 6. Aktualizuj dokumentaci (`README.md`, případně `index.html`)
 
 - [ ] V tabulce „Dostupné doplňky" v `README.md` uprav sloupec verze u doplňku
   na `<nová_verze>`.
+- [ ] **Jen když aktualizuješ samotné repository (`<id>` = `repository.czechgod`):**
+  přepiš i cestu k bootstrap ZIPu na `repository.czechgod-<nová_verze>.zip`:
+  - v `README.md` v kroku „Install from zip file",
+  - v `index.html` (kořen repozitáře) na **obou** místech
+    (`<a href="…">` i `<div class="url">`).
+- [ ] Ověř, že nikde nezůstal odkaz na `repository.czechgod-<stará_verze>.zip`.
 
 ## 7. Commit + push
 
 - [ ] Zkontroluj změny (`git status`): `<id>/addon.xml`, nový ZIP, smazaný
-  starý ZIP, `addons.xml`, `addons.xml.md5`, `README.md`.
+  starý ZIP, `addons.xml`, `addons.xml.md5`, `README.md` (a při bumpu
+  `repository.czechgod` i `index.html`).
 - [ ] Zacommituj a pushni – GitHub Pages katalog zveřejní novou verzi a Kodi
   ji nabídne k automatické aktualizaci.
 
@@ -72,6 +79,8 @@ Máš dvě možnosti (stejně jako u přidání):
 
 - **Zapomenutý bump verze** v `addon.xml` (nejčastější chyba u aktualizace).
 - **Ponechaná stará `<id>-<stará_verze>.zip`** – vždy ji smaž.
+- **Zapomenutý odkaz na bootstrap ZIP** při bumpu `repository.czechgod` –
+  aktualizuj cestu i v `README.md` a na obou místech v `index.html`.
 - Špatná kořenová složka uvnitř nového ZIPu (musí být `<id>/`).
 - Nespuštěný `just build` → neaktuální `addons.xml`/`addons.xml.md5`.
 - Ruční editace generovaných `addons.xml`/`addons.xml.md5`.

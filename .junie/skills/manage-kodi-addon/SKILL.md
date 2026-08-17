@@ -59,6 +59,21 @@ spusť `just build`, ověř novou verzi + MD5 a aktualizuj verzi v `README.md`.
 
 Kompletní krok-za-krokem postup je v [`checklists/update.md`](checklists/update.md).
 
+### Zvláštní případ: aktualizace samotného repository (`repository.czechgod`)
+
+Když bumpuješ verzi **repository doplňku** `repository.czechgod`, změní se název
+bootstrap ZIPu `repository.czechgod/repository.czechgod-<nová_verze>.zip`. Kromě
+běžného postupu (bump verze, nový ZIP, smazání starého, `just build`) musíš
+**ručně** přepsat odkazy na tento ZIP i v dokumentaci:
+
+- **`README.md`** – cesta v kroku „Install from zip file"
+  (např. `repository.czechgod/repository.czechgod-1.0.1.zip`).
+- **`../../../index.html`** – **dva** výskyty: odkaz `<a href="…">…</a>`
+  i text v bloku `<div class="url">…</div>`.
+
+Nakonec ověř, že v `README.md` ani `index.html` nezůstal žádný odkaz na starou
+verzi bootstrap ZIPu.
+
 ## Verifikace
 
 Po každé změně ověř:
@@ -73,11 +88,14 @@ Po každé změně ověř:
 
 ## Aktualizace dokumentace
 
-- **`README.md`** – tabulka „Dostupné doplňky" (doplněk, ID, verze, popis).
-  Při přidání přidej řádek, při aktualizaci uprav verzi.
-- **`../../../index.html`** – návod k instalaci repozitáře; obvykle není potřeba měnit
-  při běžném přidání/aktualizaci doplňku (mění se jen při změně cesty k
-  bootstrap ZIPu repository).
+- **`README.md`** – tabulka „Dostupné doplňky" (doplněk, ID, verze, popis):
+  při přidání přidej řádek, při aktualizaci obyčejného doplňku uprav verzi.
+  Při bumpu repository doplňku navíc uprav cestu k bootstrap ZIPu v kroku
+  „Install from zip file".
+- **`../../../index.html`** – návod k instalaci repozitáře; při běžném
+  přidání/aktualizaci obyčejného doplňku ho měnit netřeba. **Měň ho jen při
+  změně cesty k bootstrap ZIPu repository** (bump verze `repository.czechgod`) –
+  přepiš oba výskyty (`<a href>` i `<div class="url">`).
 
 ## Časté chyby (pitfalls)
 
@@ -91,6 +109,10 @@ Po každé změně ověř:
   neaktuální a doplněk se v repu neobjeví (nebo v nesprávné verzi).
 - **Ruční editace `addons.xml`/`addons.xml.md5`** – nedělej; oba soubory jsou
   generované, uprav zdroj (`addon.xml`) a spusť `just build`.
+- **Zapomenutý odkaz na bootstrap ZIP** při bumpu `repository.czechgod` – nová
+  cesta `repository.czechgod/repository.czechgod-<verze>.zip` musí být i
+  v `README.md` (krok „Install from zip file") a na **obou** místech
+  v `index.html`; nesmí zůstat odkaz na starou verzi.
 
 ## Odkazy na soubory v repu
 
