@@ -7,3 +7,6 @@ build: repo
 # Generate addons.xml and addons.xml.md5 and add any missing add-on installable ZIPs
 repo:
     python3 _repo_generator.py
+
+retrigger:
+    git commit --allow-empty -m "trigger build" && git push

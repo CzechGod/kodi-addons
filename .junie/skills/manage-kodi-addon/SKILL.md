@@ -75,7 +75,7 @@ Po každé změně ověř:
 
 - **`README.md`** – tabulka „Dostupné doplňky" (doplněk, ID, verze, popis).
   Při přidání přidej řádek, při aktualizaci uprav verzi.
-- **`../../../off-index.html`** – návod k instalaci repozitáře; obvykle není potřeba měnit
+- **`../../../index.html`** – návod k instalaci repozitáře; obvykle není potřeba měnit
   při běžném přidání/aktualizaci doplňku (mění se jen při změně cesty k
   bootstrap ZIPu repository).
 
@@ -98,4 +98,4 @@ Po každé změně ověř:
 - `justfile` – cíle `build` a `repo`.
 - `repository.czechgod/addon.xml` – definice repository (`datadir zip="true"`).
 - `plugin.video.kowesha/` – vzorový doplněk (id `plugin.video.kowesha`).
-- `README.md`, `../../../off-index.html` – dokumentace pro uživatele.
+- `README.md`, `../../../index.html` – dokumentace pro uživatele.

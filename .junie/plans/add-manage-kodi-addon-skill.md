@@ -15,7 +15,7 @@ Obsah skillu bude **v češtině** (dle volby uživatele), umístěný na **úro
 **In Scope**
 - Nový adresář `.junie/skills/manage-kodi-addon/` se souborem `SKILL.md`.
 - Dva checklisty: `checklists/add.md` (přidání) a `checklists/update.md` (aktualizace).
-- Dokumentace stávajícího workflow: struktura `<id>/` složek, formát instalačního ZIPu, generátor `_repo_generator.py`, `just build`, verifikace `addons.xml`/`addons.xml.md5`, aktualizace `README.md`/`../../off-index.html`.
+- Dokumentace stávajícího workflow: struktura `<id>/` složek, formát instalačního ZIPu, generátor `_repo_generator.py`, `just build`, verifikace `addons.xml`/`addons.xml.md5`, aktualizace `README.md`/`../../index.html`.
 - Popis častých chyb (pitfalls) a jak jim předejít.
 
 **Out of Scope**
@@ -50,7 +50,7 @@ Repozitář je Kodi add-on repository publikovaný přes GitHub Pages. Klíčov�
 - **`repository.czechgod/addon.xml`** – má `<datadir zip="true">`, takže Kodi očekává instalační archiv na `<id>/<id>-<version>.zip`.
 - **Struktura doplňku** – každý doplněk má v kořeni repa složku `<id>/` s `addon.xml`, `resources/` a ZIPem `<id>/<id>-<version>.zip`. Kořenová složka **uvnitř** ZIPu musí být přesně `<id>/`.
 - **`plugin.video.kowesha/`** – vzorový doplněk (id `plugin.video.kowesha`, verze `0.2.1`); jeho externí zdroj je v `/data_1T/projects/_priv/kowesha` (má vlastní `build_zip.py`).
-- **`README.md`** – tabulka „Dostupné doplňky"; **`../../off-index.html`** – návod k instalaci.
+- **`README.md`** – tabulka „Dostupné doplňky"; **`../../index.html`** – návod k instalaci.
 - V projektu zatím **není** žádný adresář `.junie/`.
 
 ### Klíčová rozhodnutí
@@ -89,7 +89,7 @@ Tělo (české sekce):
 - **Přidání nového doplňku** – shrnutí + odkaz na `checklists/add.md`.
 - **Aktualizace doplňku** – shrnutí + odkaz na `checklists/update.md`.
 - **Verifikace** – `just build` proběhne bez chyb, `addons.xml` je validní XML, MD5 v `addons.xml.md5` odpovídá obsahu `addons.xml`, kořenová složka v ZIPu = ID.
-- **Aktualizace dokumentace** – tabulka v `README.md` (příp. `../../off-index.html`).
+- **Aktualizace dokumentace** – tabulka v `README.md` (příp. `../../index.html`).
 - **Časté chyby** – zapomenutý bump verze, ponechaná stará `<id>-<stará_verze>.zip`, špatná kořenová složka v ZIPu, nespuštěný `just build`.
 
 ### Obsah checklistů
