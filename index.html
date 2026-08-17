@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jak přidat CzechGod Kodi repository</title>
+
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #0f1115;
+            --surface: #181b21;
+            --surface-hover: #1e222a;
+            --border: #2a2f38;
+            --text: #e6e8eb;
+            --muted: #9ba3af;
+            --accent: #17b2e6;
+            --accent-soft: rgba(23, 178, 230, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.6;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.15;
+        }
+
+        h1 span,
+        h2 {
+            color: var(--accent);
+        }
+
+        .intro {
+            margin-bottom: 32px;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        ol {
+            padding: 0;
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        li {
+            position: relative;
+            margin: 0 0 18px;
+            padding: 22px 24px 22px 72px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            counter-increment: steps;
+        }
+
+        li::before {
+            content: counter(steps);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: grid;
+            width: 36px;
+            height: 36px;
+            place-items: center;
+            background: var(--accent);
+            color: #081015;
+            border-radius: 50%;
+            font-weight: 800;
+        }
+
+        li > strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        .path {
+            color: var(--muted);
+        }
+
+        code {
+            padding: 3px 7px;
+            background: #0c0e12;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            color: #dce3e8;
+        }
+
+        .url {
+            display: block;
+            margin: 14px 0;
+            padding: 14px 16px;
+            overflow-x: auto;
+            background: #0b0d11;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 7px;
+            color: var(--accent);
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            white-space: nowrap;
+        }
+
+        .info {
+            margin-top: 32px;
+            padding: 22px 24px;
+            background: var(--accent-soft);
+            border: 1px solid rgba(23, 178, 230, 0.3);
+            border-radius: 12px;
+        }
+
+        .info h2 {
+            margin: 0 0 8px;
+            font-size: 1.25rem;
+        }
+
+        .info p {
+            margin-bottom: 0;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 24px 14px;
+            }
+
+            li {
+                padding: 64px 18px 18px;
+            }
+
+            li::before {
+                top: 16px;
+                left: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<main>
+
+    <h1>Jak přidat <span>CzechGod Kodi repository</span></h1>
+
+    <p class="intro">
+        Jednoduchý postup pro instalaci repository a následnou instalaci addonů v Kodi.
+    </p>
+
+    <ol>
+        <li>
+            <strong>Povol neznámé zdroje</strong>
+
+            <p class="path">
+                Settings → System → Add-ons
+            </p>
+
+            <p>
+                Zapni <strong>Unknown sources / Neznámé zdroje</strong>.
+            </p>
+        </li>
+
+        <li>
+            <strong>Přidej zdroj repository</strong>
+
+            <p class="path">
+                Settings → File manager → Add source
+            </p>
+
+            <p>
+                Klikni na <code>&lt;None&gt;</code> a zadej:
+            </p>
+
+            <div class="url">
+                https://czechgod.github.io/kodi-addons/
+            </div>
+
+            <p>
+                Zdroj pojmenuj například <strong>CzechGod</strong>.
+            </p>
+        </li>
+
+        <li>
+            <strong>Nainstaluj repository ze ZIP souboru</strong>
+
+            <p class="path">
+                Settings → Add-ons → Install from zip file
+            </p>
+
+            <p>
+                Vyber zdroj <strong>CzechGod</strong> a následně ZIP repository:
+            </p>
+
+            <div class="url">
+                repository.czechgod-1.0.0.zip
+            </div>
+
+            <p>
+                Počkej na oznámení <strong>Add-on repository installed</strong>.
+            </p>
+        </li>
+
+        <li>
+            <strong>Otevři repository</strong>
+
+            <p class="path">
+                Add-ons → Install from repository → CzechGod Repository
+            </p>
+        </li>
+
+        <li>
+            <strong>Nainstaluj addon</strong>
+
+            <p>
+                V repository vyber požadovaný addon a klikni na
+                <strong>Install</strong>.
+            </p>
+        </li>
+    </ol>
+
+    <section class="info">
+        <h2>Automatické aktualizace</h2>
+
+        <p>
+            Po instalaci repository už není potřeba nové verze addonů instalovat
+            ručně přes ZIP. Kodi získává informace o dostupných verzích z repository
+            a může addon automaticky aktualizovat.
+        </p>
+    </section>
+
+    <footer>
+        CzechGod Kodi Add-ons
+    </footer>
+
+</main>
+</body>
+</html>
