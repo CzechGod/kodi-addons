@@ -23,33 +23,22 @@
         </assets>
     </extension>
 </addon>
-<addon
-    id="repository.czechgod"
-    name="CzechGod Add-on Repository"
-    version="1.0.0"
-    provider-name="CzechGod">
+<addon id="repository.czechgod"
+       name="CzechGod Add-on Repository"
+       version="1.0.1"
+       provider-name="CzechGod">
 
     <extension point="xbmc.addon.repository">
         <dir>
-            <info compressed="false">
-                https://czechgod.github.io/kodi-addons/addons.xml
-            </info>
-
-            <checksum>
-                https://czechgod.github.io/kodi-addons/addons.xml.md5
-            </checksum>
-
-            <datadir zip="true">
-                https://czechgod.github.io/kodi-addons/
-            </datadir>
+            <info compressed="false">https://czechgod.github.io/kodi-addons/addons.xml</info>
+            <checksum>https://czechgod.github.io/kodi-addons/addons.xml.md5</checksum>
+            <datadir zip="true">https://czechgod.github.io/kodi-addons/</datadir>
         </dir>
     </extension>
 
     <extension point="xbmc.addon.metadata">
         <summary lang="en_GB">CzechGod Kodi add-on repository</summary>
-        <description lang="en_GB">
-            Repository for CzechGod Kodi add-ons
-        </description>
+        <description lang="en_GB">Repository for CzechGod Kodi add-ons</description>
         <platform>all</platform>
     </extension>
 

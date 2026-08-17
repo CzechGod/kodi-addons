@@ -49,7 +49,7 @@ Repozitář je Kodi add-on repository publikovaný přes GitHub Pages. Klíčov�
 - **`justfile`** – `just build` → `repo` → `python3 _repo_generator.py`.
 - **`repository.czechgod/addon.xml`** – má `<datadir zip="true">`, takže Kodi očekává instalační archiv na `<id>/<id>-<version>.zip`.
 - **Struktura doplňku** – každý doplněk má v kořeni repa složku `<id>/` s `addon.xml`, `resources/` a ZIPem `<id>/<id>-<version>.zip`. Kořenová složka **uvnitř** ZIPu musí být přesně `<id>/`.
-- **`plugin.video.kowesha/`** – vzorový doplněk (id `plugin.video.kowesha`, verze `0.2.1`); jeho externí zdroj je v `/data_1T/projects/_priv/kowesha` (má vlastní `build_zip.py`).
+- **`plugin.video.kowesha/`** – vzorový doplněk (id `plugin.video.kowesha`, verze `0.2.1`); jeho externí zdroj je v `/projects/kowesha` (má vlastní `build_zip.py`).
 - **`README.md`** – tabulka „Dostupné doplňky"; **`../../index.html`** – návod k instalaci.
 - V projektu zatím **není** žádný adresář `.junie/`.
 
@@ -95,7 +95,7 @@ Tělo (české sekce):
 ### Obsah checklistů
 
 **`checklists/add.md`** (přidání):
-1. Získat zdroj doplňku (např. externí projekt jako `/data_1T/projects/_priv/kowesha`).
+1. Získat zdroj doplňku (např. externí projekt jako `/projects/kowesha`).
 2. Vytvořit v kořeni repa složku `<id>/` a vložit `addon.xml` + `resources/` (např. `icon.png`).
 3. Připravit instalační ZIP `<id>/<id>-<version>.zip` s kořenovou složkou = `<id>/` (buď zkopírovat hotový ZIP, nebo nechat `just build` sestavit z obsahu složky).
 4. Spustit `just build`.

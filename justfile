@@ -10,3 +10,8 @@ repo:
 
 retrigger:
     git commit --allow-empty -m "trigger build" && git push
+
+checksum-xml:
+    curl -fsSL https://czechgod.github.io/kodi-addons/addons.xml | md5sum
+checksum-md5:
+    curl -fsSL https://czechgod.github.io/kodi-addons/addons.xml.md5

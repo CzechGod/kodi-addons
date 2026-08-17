@@ -7,7 +7,7 @@ Nahrazuj `<id>` skutečným ID doplňku (např. `plugin.video.kowesha`),
 ## 1. Bumpni verzi v `addon.xml`
 
 - [ ] Ve složce doplňku uprav `version` v `<id>/addon.xml` na `<nová_verze>`.
-- [ ] Pokud má doplněk externí zdroj (např. `/data_1T/projects/_priv/kowesha`),
+- [ ] Pokud má doplněk externí zdroj (např. `/projects/kowesha`),
   bumpni verzi i tam a udrž `addon.xml` synchronní se zdrojem.
 - [ ] Bez změny verze Kodi aktualizaci nenabídne a generátor nevytvoří nový ZIP.
 

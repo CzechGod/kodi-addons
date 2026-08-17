@@ -7,7 +7,7 @@ a `<version>` skutečnou verzí z `addon.xml` (např. `0.2.1`).
 ## 1. Získej zdroj doplňku
 
 - [ ] Zjisti, odkud pochází doplněk – např. externí projekt
-  (jako `/data_1T/projects/_priv/kowesha`), Git repo nebo hotový ZIP.
+  (jako `/projects/kowesha`), Git repo nebo hotový ZIP.
 - [ ] Zjisti přesné `id` a `version` z `addon.xml` zdroje. ID určuje název
   složky i instalačního ZIPu, verze určuje název ZIPu.
 
